@@ -1,6 +1,4 @@
-﻿using System.Web;
-using Autofac;
-using Microsoft.Owin.Security;
+﻿using Autofac;
 
 namespace ZM.Mvc.RavenDbUsers.Infrastructure.UserIdentity
 {
@@ -8,7 +6,7 @@ namespace ZM.Mvc.RavenDbUsers.Infrastructure.UserIdentity
     {
         protected override void Load(ContainerBuilder builder)
         {
-            //builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).As<IAuthenticationManager>();
+            // register identity related dependencies here (can move from ContainerConfig.cs)
         }
     }
 }
