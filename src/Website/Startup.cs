@@ -1,12 +1,9 @@
-﻿using System.Web.Mvc;
-using Autofac;
+﻿using Autofac;
 using Microsoft.Owin;
 using Owin;
 using ZM.Mvc.RavenDbUsers;
 using ZM.Mvc.RavenDbUsers.App_Start;
 using ZM.Mvc.RavenDbUsers.Infrastructure.Extensions;
-using ZM.Mvc.RavenDbUsers.Infrastructure.Mvc;
-using ZM.Mvc.RavenDbUsers.Infrastructure.UserIdentity;
 
 [assembly: OwinStartup(typeof(Startup))]
 namespace ZM.Mvc.RavenDbUsers
@@ -22,10 +19,9 @@ namespace ZM.Mvc.RavenDbUsers
             // Configure IoC container
             IContainer container = ContainerConfig.Configure(app).Build();
 
+            // Finalize IoC container configuration and register the custom MVC Autofac configuration with Owin
             app.UseAutofacMiddleware(container)
                .ConfigureMvc(container);
-
-            //ControllerBuilder.Current.SetControllerFactory(CompositionRoot.GetMvcControllerFactory());
         }
 
         #endregion
