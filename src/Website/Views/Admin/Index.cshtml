@@ -1,0 +1,12 @@
+﻿@model IEnumerable<ZM.Mvc.RavenDbUsers.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Admin Control Center";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Manage Registered Users", "RegisteredUsers", "Admin")
+</p>
