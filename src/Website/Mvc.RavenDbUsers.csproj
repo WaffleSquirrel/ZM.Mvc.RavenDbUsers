@@ -194,9 +194,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Extensions\OwinExtensions.cs" />
-    <Compile Include="Infrastructure\Extensions\SystemWebExtensions.cs" />
-    <Compile Include="Infrastructure\Mvc\CompositionRoot.cs" />
-    <Compile Include="Infrastructure\Mvc\ControllerFactory.cs" />
     <Compile Include="Infrastructure\Mvc\MvcModule.cs" />
     <Compile Include="Infrastructure\Mvc\RavenController.cs" />
     <Compile Include="Infrastructure\UserIdentity\ApplicationSignInManager.cs" />
@@ -206,7 +203,6 @@
     <Compile Include="Infrastructure\UserIdentity\IUserIdentityService.cs" />
     <Compile Include="Infrastructure\UserIdentity\UserIdentityService.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\Human.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\AdminViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
