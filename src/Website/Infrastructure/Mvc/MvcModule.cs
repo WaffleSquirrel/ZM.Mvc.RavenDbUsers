@@ -10,7 +10,6 @@ namespace ZM.Mvc.RavenDbUsers.Infrastructure.Mvc
             builder.RegisterModule(new AutofacWebTypesModule());
             builder.RegisterFilterProvider();
             builder.RegisterControllers(typeof(MvcApplication).Assembly).InstancePerRequest();
-            //builder.RegisterControllers(Assembly.GetExecutingAssembly());
         }
     }
 }
