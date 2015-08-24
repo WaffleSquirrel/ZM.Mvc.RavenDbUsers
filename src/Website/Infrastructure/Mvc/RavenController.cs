@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Web;
 using System.Web.Mvc;
-using AspNet.Identity.RavenDB.Stores;
-using Microsoft.AspNet.Identity.Owin;
-using Raven.Client;
 using ZM.Mvc.RavenDbUsers.Infrastructure.UserIdentity;
-using ZM.Mvc.RavenDbUsers.Models;
 
 namespace ZM.Mvc.RavenDbUsers.Infrastructure.Mvc
 {
@@ -17,19 +12,7 @@ namespace ZM.Mvc.RavenDbUsers.Infrastructure.Mvc
 
         #endregion
 
-        //#region Properties
-
-        //public IAsyncDocumentSession RavenDocumentSession { get; set; }
-
-        //#endregion
-
         #region Methods
-
-        //private void CreateRavenSession()
-        //{
-        //    this.RavenDocumentSession = this.UserIdentityService.UserDatabase.OpenAsyncSession();
-        //    this.RavenDocumentSession.Advanced.UseOptimisticConcurrency = true;
-        //}
 
         protected HttpStatusCodeResult HttpNotModified()
         {
@@ -42,35 +25,14 @@ namespace ZM.Mvc.RavenDbUsers.Infrastructure.Mvc
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            //if (this.RavenDocumentSession == null)
-            //{
-            //    this.CreateRavenSession();
-            //}
-
-            //var options = new IdentityFactoryOptions<ApplicationUserManager>();
-            //var userStore = new RavenUserStore<ApplicationUser>(this.RavenDocumentSession);
-            //var authenticationManager = HttpContextBaseExtensions.GetOwinContext(filterContext.HttpContext).Authentication;
-
-            //this.UserIdentityService.UserManager = ApplicationUserManager.Create(options, userStore);
-            //this.UserIdentityService.SignInManager = new ApplicationSignInManager(this.UserIdentityService.UserManager, authenticationManager);
+            // Do stuff here if you want
 
             base.OnActionExecuting(filterContext);
         }
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            //if (this.RavenDocumentSession != null)
-            //{
-            //    using (this.RavenDocumentSession)
-            //    {
-            //        var thereIsNoRavenDocumentSessionException = filterContext.Exception == null;
-
-            //        if (thereIsNoRavenDocumentSessionException)
-            //        {
-            //            this.RavenDocumentSession.SaveChangesAsync();
-            //        }
-            //    }
-            //}
+            // Do stuff here if you want
 
             base.OnActionExecuted(filterContext);
         }
