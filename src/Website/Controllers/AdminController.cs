@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
-using Microsoft.Owin.Security;
 using Raven.Client;
 using ZM.Mvc.RavenDbUsers.Infrastructure.Mvc;
 using ZM.Mvc.RavenDbUsers.Infrastructure.UserIdentity;
@@ -61,11 +58,11 @@ namespace ZM.Mvc.RavenDbUsers.Controllers
                 this.errorMessage = ex.ToString();
 
                 message = ManageMessageId.Error;
-            }            
+            }
 
             if (message != ManageMessageId.Error)
             {
-                if(registeredUsers.Count == 0)
+                if (registeredUsers.Count == 0)
                 {
                     ViewBag.StatusMessage = "No registered users.";
                 }
