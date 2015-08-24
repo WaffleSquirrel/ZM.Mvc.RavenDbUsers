@@ -3,7 +3,6 @@ using System.Web;
 using AspNet.Identity.RavenDB.Stores;
 using Autofac;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using Raven.Client;
@@ -32,7 +31,6 @@ namespace ZM.Mvc.RavenDbUsers.App_Start
                 ravenSession.Advanced.UseOptimisticConcurrency = true;
 
                 return ravenSession;
-
             }).As<IAsyncDocumentSession>();
 
             // ensure a new instance of a RavenUserStore<ApplicationUser> is created with an async Raven Session when an IUserStore<ApplicationUser> dependency is resolved/injected
@@ -41,19 +39,8 @@ namespace ZM.Mvc.RavenDbUsers.App_Start
             // ensure a new instance of the AuthenicationManager that is reqistered in the OwinContext is created when an IAuthenticationManager dependency is resolved/injected
             builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).As<IAuthenticationManager>();
 
-            //// ensure a new instance of a UserManager<ApplicationUser> is created with resolved dependencies
-            //builder.RegisterType<UserManager<ApplicationUser>>();
-
-            //// ensure a new instance of a SignInManager<ApplicationUser, string> is created with resolved dependencies
-            //builder.RegisterType<SignInManager<ApplicationUser, string>>();
-
             // ensure a new instance of a UserIdentityService is created with resolved dependencies when an IUserIdentityService dependency is resolved/injected
             builder.Register(c => new UserIdentityService(c.Resolve<IUserStore<ApplicationUser>>(), c.Resolve<IAuthenticationManager>())).As<IUserIdentityService>();
-
-            //// Custom OAuth Provider stuff, not needed right now
-            //// needed to generate user tokens to confirm account registration and for password reset tokens
-            //// see http://tech.trailmax.info/2014/09/aspnet-identity-and-ioc-container-registration/
-            ////builder.Register(p => app.GetDataProtectionProvider()).As<IDataProtectionProvider>();
 
             // ensure any custom Autofac modules are registered found in this assembly
             builder.RegisterAssemblyModules(Assembly.GetExecutingAssembly());
