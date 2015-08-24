@@ -9,29 +9,6 @@ namespace ZM.Mvc.RavenDbUsers.Infrastructure.UserIdentity
 {
     internal sealed class UserIdentityService : IUserIdentityService
     {
-        #region Fields
-
-        //private ApplicationUserManager applicationUserManager;
-        //private ApplicationSignInManager applicationSignInManager;
-
-        #endregion
-
-        #region Methods
-
-        //private void Validate()
-        //{
-        //    const string EXCEPTION_MSG_FORMAT_STRING = "The [{0}] could not be resolved. Unable to create the UserIdentityService.";
-
-        //    Func<string, string> getExceptionMsg = (propertyName) => string.Format(EXCEPTION_MSG_FORMAT_STRING, propertyName);
-
-        //    if (this.UserManager == null)
-        //    {
-        //        throw new ApplicationException(getExceptionMsg("UserManager"));
-        //    }
-        //}
-
-        #endregion
-
         #region Constructor(s)
 
         internal UserIdentityService(IUserStore<ApplicationUser> userStore, IAuthenticationManager authenticationManager)
